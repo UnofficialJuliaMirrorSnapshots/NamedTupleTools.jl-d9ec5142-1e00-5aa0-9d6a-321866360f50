@@ -14,6 +14,18 @@
 `NamedTuples` are built from fieldnames, given as `Symbols` and field values, as they may be given.
 These utilities make some uses of `NamedTuples` a little more straightforward.  
 
+## Construction from names and values (Kristoffer Carlsson)
+```julia
+julia> using NamedTupleTools
+julia> namesofvalues  = (:instrument, :madeby)
+julia> matchingvalues = ("violin", "Stradivarius")
+
+julia> nt = namedtuple(namesofvalues, matchingvalues)
+(instrument = "violin", madeby = "Stradivarius")
+```
+- The names may be given as `Symbols` or `Strings`
+- The names, values may be `Tuples` or `Vectors`
+
 ## Selecting Elements
 ```julia
 julia> using NamedTupleTools
@@ -110,7 +122,7 @@ julia> merge(ntproto1,ntproto2)
 NamedTuple{(:a, :b, :c),T} where T<:Tuple
 ```
 
-## struct construction, conversion
+## Struct construction, conversion
 ```
 using NamedTupleTools
 
